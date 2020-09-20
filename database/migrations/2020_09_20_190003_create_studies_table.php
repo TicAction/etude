@@ -15,7 +15,7 @@ class CreateStudiesTable extends Migration
     {
         Schema::create('studies', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('group');
+            $table->boolean('group');
             $table->date('start_date');
             $table->date('end_date');
             $table->string('reading');

@@ -34,7 +34,7 @@ class StudyController extends Controller
      */
     public function index()
     {
-    
+
       return view('study.index');
     }
 
@@ -45,7 +45,8 @@ class StudyController extends Controller
      */
     public function create()
     {
-        //
+
+        return view('study.create');
     }
 
     /**
@@ -56,7 +57,8 @@ class StudyController extends Controller
      */
     public function store(Request $request)
     {
-        //
+
+         
     }
 
     /**
