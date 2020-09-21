@@ -15,19 +15,19 @@ class CreateStudiesTable extends Migration
     {
         Schema::create('studies', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->boolean('group');
+            $table->boolean('group')->default(0);
             $table->date('start_date');
             $table->date('end_date');
-            $table->string('reading');
-            $table->string('vocabulary');
-            $table->string('grammary');
-            $table->string('verbs');
-            $table->string('math');
-            $table->string('english');
-            $table->string('oral');
-            $table->string('history');
-            $table->string('science');
-            $table->longtext('other');
+            $table->string('reading')->nullable();
+            $table->string('vocabulary')->nullable();
+            $table->string('grammary')->nullable();
+            $table->string('verbs')->nullable();
+            $table->string('math')->nullable();
+            $table->string('english')->nullable();
+            $table->string('oral')->nullable();
+            $table->string('history')->nullable();
+            $table->string('science')->nullable();
+            $table->longtext('other')->nullable();
             $table->timestamps();
         });
     }

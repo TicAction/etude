@@ -5,7 +5,9 @@
 <div class="col-8 offset-2">
 
 
-<form class="" action="admin_study_store" method="post">
+<form action="{{ route('admin_study_store') }}" method="POST">
+
+  @csrf
   <div class="row">
     <div class="col-6">
       <div class="form-group">
@@ -28,9 +30,9 @@
     <label class="label">Groupe</label>
       <div class="form-group">
           <select class="form-control "type="text" name="group" value="">
-            <option selected>Faire un choix</option>
-            <option value="341">341</option>
-            <option value="431">431</option>
+            <option selected value="0">Faire un choix</option>
+            <option value="1">341</option>
+            <option value="2">431</option>
           </select>
       </div>
   </div>
