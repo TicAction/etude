@@ -5,7 +5,7 @@
 <div class="col-8 offset-2">
 
 
-<form action="{{ route('admin_study_store') }}" method="POST">
+<form action="{{ route('admin_study_update',$study->id)}}" method="POST">
 @method('PUT')
   @csrf
   <div class="row">
@@ -29,10 +29,16 @@
   <div class="form-group">
     <label class="label">Groupe</label>
       <div class="form-group">
-          <select class="form-control "type="text" name="group" value="{{$study->group}}">
+          <select class="form-control "type="text" name="group" >
+            @if($study->group = 0)
             <option selected value="0">Faire un choix</option>
-            <option value="341">341</option>
-            <option value="431">431</option>
+          @endif
+          @if($study->group = 1)
+            <option value="1">341</option>
+          @endif
+            @if($study->group = 2)
+            <option value="2">431</option>
+          @endif
           </select>
       </div>
   </div>
@@ -104,7 +110,7 @@
 
     <label class="label">Autres</label>
       <div class="control">
-          <textarea class="form-control" type="textarea" name="other"}">{{$study->other}}</textarea>
+          <textarea class="form-control" type="textarea" name="other">{{$study->other}}></textarea>
       </div>
 
 <br>

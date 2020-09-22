@@ -34,8 +34,9 @@ class StudyController extends Controller
      */
     public function index()
     {
+      $study = Study::latest()->get();
 
-      return view('study.index');
+      return view('study.index',compact('study'));
     }
 
     /**
@@ -79,21 +80,9 @@ class StudyController extends Controller
       ]);
 
       Study::create($request->all());
-    // $study->reading = request('reading');
-    // $study->vocabulary = request('vocabulary');
-    // $study->start_date = request('start_date');
-    // $study->end_date = request('end_date');
-    // $study->grammary = request('grammary');
-    // $study->verbs = request('verbs');
-    // $study->math = request('math');
-    // $study->english = request('english');
-    // $study->oral = request('oral');
-    // $study->history = request('history');
-    // $study->science = request('science');
-    // $study->other = request('other');
-    // $study->save();
 
-    return redirect('admin_study_index');
+
+    return redirect('admin');
     }
 
     /**
@@ -130,22 +119,9 @@ class StudyController extends Controller
      */
     public function update(Request $request, Study $study)
     {
-
-
-          $study->reading = request('reading');
-          $study->vocabulary = request('vocabulary');
-          $study->start_date = request('start_date');
-          $study->end_date = request('end_date');
-          $study->grammary = request('grammary');
-          $study->verbs = request('verbs');
-          $study->math = request('math');
-          $study->english = request('english');
-          $study->oral = request('oral');
-          $study->history = request('history');
-          $study->science = request('science');
-          $study->other = request('other');
-          $study->save();
-          return redirect('admin_study_index');
+      
+          $study->update($request->all());
+          return redirect('admin');
     }
 
     /**
