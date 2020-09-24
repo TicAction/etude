@@ -15,7 +15,8 @@ class StudyController extends Controller
    */
   public function firstgroup()
   {
-      //
+      $study = Study::where('group','=','1')->get();
+      return view('341.index',compact('study'));
   }
 
   /**
@@ -25,7 +26,8 @@ class StudyController extends Controller
    */
   public function secondgroup()
   {
-      //
+    $study = Study::where('group','=','2')->get();
+    return view('431.index',compact('study'));
   }
     /**
      * Display a listing of the resource.
@@ -119,7 +121,7 @@ class StudyController extends Controller
      */
     public function update(Request $request, Study $study)
     {
-      
+
           $study->update($request->all());
           return redirect('admin');
     }
