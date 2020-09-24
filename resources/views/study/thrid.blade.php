@@ -2,85 +2,85 @@
 
 @section('content')
 
-
-        <h2 class="text-center">Leçons et devoirs du {{\Carbon\Carbon::parse($study->start_date)->format('d M')}} au {{\Carbon\Carbon::parse($study->end_date)->format('d M')}}</h2>
-
+    @foreach($study as $stu)
+        <h2 class="text-center">Leçons et devoirs du {{\Carbon\Carbon::parse($stu->start_date)->format('d M')}} au {{\Carbon\Carbon::parse($stu->end_date)->format('d M')}}</h2>
+    @endforeach
     <br>
     <hr>
     <table class="table table-striped col-8 offset-2">
+        @foreach ($study as $stu)
 
-
-            @if($study->reading)
+            @if($stu->reading)
                 <tr>
                     <th>  Lecture :</th>
-                    <td>  {{$study->reading}} </td>
+                    <td>  {{$stu->reading}} </td>
                 </tr>
             @endif
 
-            @if($study->vocabulary)
+            @if($stu->vocabulary)
                 <tr>
                     <th>  Vocabulaire :</th>
-                    <td>  {{$study->vocabulary}} </td>
+                    <td>  {{$stu->vocabulary}} </td>
                 </tr>
             @endif
 
-            @if($study->grammary)
+            @if($stu->grammary)
                 <tr>
                     <th>  Grammaire :</th>
-                    <td>  {{$study->grammary}} </td>
+                    <td>  {{$stu->grammary}} </td>
                 </tr>
             @endif
 
-            @if($study->verbs)
+            @if($stu->verbs)
                 <tr>
                     <th>  Conjugaison :</th>
-                    <td>  {{$study->verbs}} </td>
+                    <td>  {{$stu->verbs}} </td>
                 </tr>
             @endif
 
-            @if($study->math)
+            @if($stu->math)
                 <tr>
                     <th>  Mathématique :</th>
-                    <td>  {{$study->math}} </td>
+                    <td>  {{$stu->math}} </td>
                 </tr>
             @endif
 
-            @if($study->english)
+            @if($stu->english)
                 <tr>
                     <th>  Anglais :</th>
-                    <td>  {{$study->english}} </td>
+                    <td>  {{$stu->english}} </td>
                 </tr>
             @endif
 
-            @if($study->oral)
+            @if($stu->oral)
                 <tr>
                     <th>  Communication orale :</th>
-                    <td>  {{$study->oral}} </td>
+                    <td>  {{$stu->oral}} </td>
                 </tr>
             @endif
 
-            @if($study->history)
+            @if($stu->history)
                 <tr>
                     <th>  Univers social :</th>
-                    <td>  {{$study->history}} </td>
+                    <td>  {{$stu->history}} </td>
                 </tr>
             @endif
 
-            @if($study->science)
+            @if($stu->science)
                 <tr>
                     <th>  Science et technologie :</th>
-                    <td>  {{$study->science}} </td>
+                    <td>  {{$stu->science}} </td>
                 </tr>
             @endif
 
-            @if($study->other)
+            @if($stu->other)
                 <tr>
                     <th>  Autres :</th>
-                    <td>  {{$study->other}} </td>
+                    <td>  {{$stu->other}} </td>
                 </tr>
             @endif
 
-
+        @endforeach
 
     </table>
 
@@ -89,4 +89,3 @@
 
 
 @endsection
-

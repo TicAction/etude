@@ -43,6 +43,19 @@
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav mr-auto">
 
+                        <li class="nav-item active">
+                            <a class="nav-link" href="admin/">Liste des devoirs </a>
+                        </li>
+                        <li class="nav-item active">
+                            <a class="nav-link" href="admin/create">Création </a>
+                        </li>
+                        <li class="nav-item active">
+                            <a class="nav-link" href="admin/create">341</a>
+                        </li>
+                        <li class="nav-item active">
+                            <a class="nav-link" href="admin/create">431 </a>
+                        </li>
+
                     </ul>
 
                     <!-- Right Side Of Navbar -->

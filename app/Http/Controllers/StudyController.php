@@ -36,9 +36,10 @@ class StudyController extends Controller
      */
     public function index()
     {
-      $study = Study::latest()->get();
+      $thirds =Study::latest()->get();
+      $fourths =Study::latest()->get();
 
-      return view('study.index',compact('study'));
+      return view('study.index',compact('thirds','fourths'));
     }
 
     /**

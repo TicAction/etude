@@ -2,90 +2,57 @@
 
 @section('content')
 
-@foreach($study as $stu)
-<h2 class="text-center">Leçons et devoirs du {{\Carbon\Carbon::parse($stu->start_date)->format('d M')}} au {{\Carbon\Carbon::parse($stu->end_date)->format('d M')}}</h2>
-@endforeach
-<br>
+<h3>Groupe 341</h3>
+    <table class="table table-striped">
+        <tr>
+
+            <th>Date du début</th>
+            <th>Lecture</th>
+            <th>Actions</th>
+        </tr>
+        @foreach($thirds as $third)
+            @if($third->group == '1')
+            <tr>
+
+                <td>
+                    <div>Leçons et devoirs du {{\Carbon\Carbon::parse($third->start_date)->format('d M')}} au {{\Carbon\Carbon::parse($third->end_date)->format('d M')}}</div>
+                </td>
+                <td>
+                    {{$third->reading}}
+                </td>
+                <td>
+                    <a href="{{route('admin_study_show',$third->id)}}"><button class="btn btn-primary btn-sm">Voir</button> </a>
+                    <a href="{{route('admin_study_edit',$third->id)}}"><button class="btn btn-success btn-sm">Modifier</button> </a>
+                </td>
+            </tr>
+        @endif
+        @endforeach
+    </table>
 <hr>
-  <table class="table table-striped col-8 offset-2">
-    @foreach ($study as $stu)
 
-  @if($stu->reading)
-      <tr>
-        <th>  Lecture :</th>
-          <td>  {{$stu->reading}} </td>
-      </tr>
-  @endif
+    <h3>Groupe 431</h3>
+    <table class="table table-striped">
+        <tr>
 
-  @if($stu->vocabulary)
-      <tr>
-        <th>  Vocabulaire :</th>
-          <td>  {{$stu->vocabulary}} </td>
-      </tr>
-  @endif
-
-  @if($stu->grammary)
-      <tr>
-        <th>  Grammaire :</th>
-          <td>  {{$stu->grammary}} </td>
-      </tr>
-  @endif
-
-  @if($stu->verbs)
-      <tr>
-        <th>  Conjugaison :</th>
-          <td>  {{$stu->verbs}} </td>
-      </tr>
-  @endif
-
-  @if($stu->math)
-      <tr>
-        <th>  Mathématique :</th>
-          <td>  {{$stu->math}} </td>
-      </tr>
-  @endif
-
-  @if($stu->english)
-      <tr>
-        <th>  Anglais :</th>
-          <td>  {{$stu->english}} </td>
-      </tr>
-  @endif
-
-  @if($stu->oral)
-      <tr>
-        <th>  Communication orale :</th>
-          <td>  {{$stu->oral}} </td>
-      </tr>
-  @endif
-
-  @if($stu->history)
-      <tr>
-        <th>  Univers social :</th>
-          <td>  {{$stu->history}} </td>
-      </tr>
-  @endif
-
-  @if($stu->science)
-      <tr>
-        <th>  Science et technologie :</th>
-          <td>  {{$stu->science}} </td>
-      </tr>
-  @endif
-
-  @if($stu->other)
-      <tr>
-        <th>  Autres :</th>
-          <td>  {{$stu->other}} </td>
-      </tr>
-  @endif
-
-  @endforeach
-
-  </table>
-
-
-
-
+            <th>Date du début</th>
+            <th>Lecture</th>
+            <th>Actions</th>
+        </tr>
+        @foreach($fourths as $fourth)
+            @if($fourth->group == '2')
+            <tr>
+                <td>
+                    <div>Leçons et devoirs du {{\Carbon\Carbon::parse($fourth->start_date)->format('d M')}} au {{\Carbon\Carbon::parse($fourth->end_date)->format('d M')}}</div>
+                </td>
+                <td>
+                    {{$fourth->reading}}
+                </td>
+                <td>
+                    <a href="{{route('admin_study_show',$fourth->id)}}"><button class="btn btn-primary btn-sm">Voir</button> </a>
+                    <a href="{{route('admin_study_edit',$fourth->id)}}"><button class="btn btn-success btn-sm">Modifier</button> </a>                </td>
+            </tr>
+            @endif
+        @endforeach
+    </table>
 
 @endsection
