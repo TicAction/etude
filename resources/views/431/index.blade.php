@@ -1,15 +1,19 @@
 @extends('layouts.main')
 
 @section('content')
-
-@foreach($study as $stu)
-<h2 class="text-center">Leçons et devoirs du {{\Carbon\Carbon::parse($stu->start_date)->format('d M')}} au {{\Carbon\Carbon::parse($stu->end_date)->format('d M')}}</h2>
-@endforeach
-<br>
-<hr>
-  <table class="table table-striped col-8 offset-2">
+    <table class="table table-striped col-10 offset-1">
     @foreach ($study as $stu)
 
+        @if(
+        Jenssegers\Date\Date::parse($stu->start_date)->format('d m')  >Jenssegers\Date\Date::now()->format('d m')
+        &&
+        Jenssegers\Date\Date::parse($stu->end_date)->format('d m') < Jenssegers\Date\Date::now()->format('d m')
+        )
+                <tr>
+   <td colspan="2">
+       <h2 class="text-center">Leçons et devoirs du {{Jenssegers\Date\Date::parse($stu->start_date)->format('d F')}} au {{Jenssegers\Date\Date::parse($stu->end_date)->format('d F Y')}}</h2>
+   </td>
+</tr>
   @if($stu->reading)
       <tr>
         <th>  Lecture :</th>
@@ -79,7 +83,13 @@
           <td>  {{$stu->other}} </td>
       </tr>
   @endif
-
+            <tr>
+0                <td colspan="2">  <br>
+                    <br>
+                    <br>
+                    </td>
+            </tr>
+            @endif
   @endforeach
 
   </table>

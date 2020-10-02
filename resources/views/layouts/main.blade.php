@@ -31,10 +31,10 @@
           <a class="nav-link" href="#">Accueil <span class="sr-only">(current)</span></a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">431</a>
+          <a class="nav-link" href="{{route('firstgroup')}}">341</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">341</a>
+          <a class="nav-link" href="{{route('secondgroup')}}">431</a>
         </li>
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">

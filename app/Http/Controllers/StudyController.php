@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Study;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 
 class StudyController extends Controller
@@ -27,6 +28,7 @@ class StudyController extends Controller
   public function secondgroup()
   {
     $study = Study::where('group','=','2')->get();
+
     return view('431.index',compact('study'));
   }
     /**
@@ -38,6 +40,7 @@ class StudyController extends Controller
     {
       $thirds =Study::latest()->get();
       $fourths =Study::latest()->get();
+      Carbon::setLocale('fr');
 
       return view('study.index',compact('thirds','fourths'));
     }
@@ -135,6 +138,7 @@ class StudyController extends Controller
      */
     public function destroy(Study $study)
     {
-        //
+       $study->delete();
+        return redirect('admin');
     }
 }

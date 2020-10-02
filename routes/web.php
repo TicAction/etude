@@ -25,7 +25,7 @@ Route::get('/admin/create', 'StudyController@create')->name('admin_study_create'
 Route::get('/admin/{study}', 'StudyController@show')->name('admin_study_show')->middleware('auth');
 Route::get('/admin/{study}/edit', 'StudyController@edit')->name('admin_study_edit')->middleware('auth');
 Route::put('/admin/{study}', 'StudyController@update')->name('admin_study_update')->middleware('auth');
-Route::delete('/admin/{study}', 'StudyController@delete')->name('admin_study_delete')->middleware('auth');
+Route::delete('/admin/{study}', 'StudyController@destroy')->name('admin_study_delete')->middleware('auth');
 
 Route::get('/etude/341', 'StudyController@firstgroup')->name('firstgroup');
 
